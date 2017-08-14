@@ -5,6 +5,8 @@
 // @description  Pushes a message from Torn chat to Discord
 // @author       saeed [1826888]
 // @match        *://www.torn.com/*
-// @downloadURL  http://sigmadevops.com/js/nnbtrainer.user.js
-// @updateURL    http://sigmadevops.com/js/nnbtrainer.user.js
+// @downloadURL  https://github.com/imsaeed/tornchatdiscord/blob/master/TornToDiscord.user.js
+// @updateURL    https://github.com/imsaeed/tornchatdiscord/blob/master/TornToDiscord.user.js
 // ==/UserScript==
+var secretRegex = /chat.init.(.*)chatRoot'/
+console.log(secretRegex);
