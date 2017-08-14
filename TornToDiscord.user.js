@@ -8,5 +8,34 @@
 // @downloadURL  https://github.com/imsaeed/tornchatdiscord/blob/master/TornToDiscord.user.js
 // @updateURL    https://github.com/imsaeed/tornchatdiscord/blob/master/TornToDiscord.user.js
 // ==/UserScript==
-var secretRegex = /chat.init.(.*)chatRoot'/
-console.log(secretRegex);
+//Get Chat Secret
+var secretRegex = document.body.textContent.match (/chat.init.(.*)chatRoot'/);
+var chatSecret = secretRegex[0].split(",");
+var chatSecret = chatSecret[3].replace(" ","").slice(1, -1);
+
+
+//Open the websocket for viewing
+var webSocket = new WebSocket('wss://ws.torn.com/chat/ws?uid=1826888&secret=b6457aae92cdf25f11d15cb2d82df06e22ebe4e9986c1d09195b85708f2bcfc7');
+    webSocket.onopen = function (e) {
+        console.log('websocket opened');
+    };
+
+webSocket.onerror = function(e) {
+        console.log('an error occured', e);
+    };
+webSocket.onmessage = function(msg){
+  var msgParse = JSON.parse(msg.data);
+  var msgText = msgParse.data[0].messageText;
+  dataToSend = JSON.stringify({ "content": msgText + " Sent by:" + msgParse.data[0].senderName});
+
+  console.log(msgText);
+if (msgText.indexOf('!f') !== -1) {
+
+  $.ajax({
+    type: 'POST',
+    async: false,
+    url: 'https://discordapp.com/api/webhooks/346508040654028802/S8TcxcRa8Vo5LRhjpp5e609Jp6J6NzPRQ6VA9uGhU1_mG3YQPdAFxOFU32-XDN-12OST',
+    data: dataToSend, // or JSON.stringify ({name: 'jonas'}),
+    contentType: "application/json",
+    dataType: 'json'
+});}}
