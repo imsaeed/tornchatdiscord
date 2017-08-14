@@ -28,7 +28,7 @@ webSocket.onmessage = function(msg){
   dataToSend = JSON.stringify({ "content": msgParse.data[0].messageText + " Sent by:" + msgParse.data[0].senderName});
 
   console.log(msgText);
-if (msgText.indexOf('!f') !== -1) {
+if (msgParse.data[0].messageText.indexOf('!f') !== -1) {
 
   $.ajax({
     type: 'POST',
