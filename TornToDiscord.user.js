@@ -25,8 +25,7 @@ webSocket.onerror = function(e) {
     };
 webSocket.onmessage = function(msg){
   var msgParse = JSON.parse(msg.data);
-  var msgText = msgParse.data[0].messageText;
-  dataToSend = JSON.stringify({ "content": msgText + " Sent by:" + msgParse.data[0].senderName});
+  dataToSend = JSON.stringify({ "content": msgParse.data[0].messageText + " Sent by:" + msgParse.data[0].senderName});
 
   console.log(msgText);
 if (msgText.indexOf('!f') !== -1) {
