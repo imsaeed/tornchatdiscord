@@ -15,11 +15,6 @@ var chatSecret = secretRegex[0].split(",");
 var Secret = chatSecret[3].replace(" ","").slice(1, -1);
 var uid = chatSecret[1].replace(" ","").slice(1,-1);
 
-if(GM_getValue("ttdIsLoaded") != "1") {
-//set "is open"
-console.log("TTD Loaded");
-GM_setValue("ttdIsLoaded", '1');
-
 //Open the websocket for viewing
 var webSocket = new WebSocket('wss://ws.torn.com/chat/ws?uid=' + uid + '&secret=' + Secret);
     webSocket.onopen = function (e) {
@@ -44,9 +39,3 @@ if (msgParse.data[0].messageText.indexOf('!f') !== -1) {
 });
 }
 };
-    //unset when page close
-$(window).unload(function(){
-    console.log("TTD Unloaded");
-    GM_setValue("ttdIsLoaded", '0');
-});
-} else {console.log("TTD is already loaded! Not loading again.");}
