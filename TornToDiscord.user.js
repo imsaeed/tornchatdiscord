@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         TornToDiscord
 // @namespace    http://sigmadevops.com
-// @version      0.1
+// @version      0.5
 // @description  Pushes messages from Torn to Discord
 // @author       saeed [1826888]
 // @match        *://www.torn.com/*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @updateURL    https://github.com/imsaeed/tornchatdiscord/raw/master/TornToDiscord.user.js
 // ==/UserScript==
 
 //Get Chat Secret
