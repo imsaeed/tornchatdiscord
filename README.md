@@ -1,5 +1,5 @@
 Torn Chat to Discord!
-To use, you must have Tampermonkey. 
+To use, you must have Tampermonkey / Greasemonkey
 
 NOTE: CLICKING BELOW LINK MAY ASK YOU TO INSTALL A SCRIPT FROM TAMPERMONKEY. IF SO, CLICK YES, AND IGNORE THE BELOW INSTRUCTIONS!
 
