@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         TornToDiscord-Trade
+// @name         TornToDiscord
 // @namespace    http://sigmadevops.com
 // @version      0.1
-// @description  Pushes trade chat from Torn to Discord
+// @description  Pushes messages from Torn to Discord
 // @author       saeed [1826888]
 // @match        *://www.torn.com/*
 // @grant        GM_setValue
